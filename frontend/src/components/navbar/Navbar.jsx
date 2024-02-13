@@ -12,13 +12,12 @@ const Navbar = () => {
     return (
       <div className="navbar-container">
             <div className="navbar-logo">
-                <Link to={'/'}><h2 className='logo'>JOYKARA</h2></Link>
+                <Link to={'/'}><h2 className='logo'>SPECIAPPT</h2></Link>
             </div>
             <div>
                 <ul className="navbar-links">
-                    <li><a href="/#about-me">ABOUT ME</a></li>
-                    <li><a href="/#stacks">STACKS</a></li>
-                    <li><a href="/projects">PROJECTS</a></li>
+                    <li><a href="/#about-me">APPOINTMENTS</a></li>
+                    <li><a href="/projects">PROFILE</a></li>
                     <li><a href="/#contact">CONTACT</a></li>
                 </ul>
             </div>
@@ -28,9 +27,8 @@ const Navbar = () => {
                 {toggleMenu && (
                 <nav className="navbar-menu-mobile">
                     <ul>
-                        <li><a href="/#about-me">ABOUT ME</a></li>
-                        <li><a href="/#stacks">STACKS</a></li>
-                        <li><a href="/projects">PROJECTS</a></li>
+                        <li><a href="/#about-me">APPOINTMENTS</a></li>
+                        <li><a href="/projects">PROFILE</a></li>
                         <li><a href="/#contact">CONTACT</a></li>
                     </ul>
                 </nav>
