@@ -1,9 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Oswald&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Cookie&family=EB+Garamond:ital@0;1&family=Noto+Serif:ital,wght@0,300;0,400;0,600;1,300;1,600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@300;400&display=swap');
 :root {
-  --font-family: 'Playfair Display', sans-serif;
+  --font-family: 'Noto Serif', serif;
+  --links-font-family: 'EB Garamond', sans-serif;
   --links-font-family: 'Oswald', sans-serif;
 
   --color-bg: #263738f7;
