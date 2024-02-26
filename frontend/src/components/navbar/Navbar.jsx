@@ -2,6 +2,7 @@ import React, {useState} from 'react';
 import './navbar.css';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
+import logo from "../../assets/speciappt.png";
 
 const Navbar = () => {
     const [toggleMenu, setToggleMenu] = useState(false);
@@ -12,12 +13,15 @@ const Navbar = () => {
     return (
       <div className="navbar-container">
             <div className="navbar-logo">
-                <Link to={'/'}><h2 className='logo'>SPECIAPPT</h2></Link>
+                {/* add logo as link to  home page */}
+                <Link to="/home">
+                    <img src={logo} alt="logo" className="logo" />
+                </Link>
             </div>
             <div>
                 <ul className="navbar-links">
-                    <li><a href="/#about-me">APPOINTMENTS</a></li>
-                    <li><a href="/projects">PROFILE</a></li>
+                    <li><a href="/appointments">APPOINTMENTS</a></li>
+                    <li><a href="/profile">PROFILE</a></li>
                     <li><a href="/#contact">CONTACT</a></li>
                 </ul>
             </div>
@@ -27,8 +31,8 @@ const Navbar = () => {
                 {toggleMenu && (
                 <nav className="navbar-menu-mobile">
                     <ul>
-                        <li><a href="/#about-me">APPOINTMENTS</a></li>
-                        <li><a href="/projects">PROFILE</a></li>
+                        <li><a href="/appointments">APPOINTMENTS</a></li>
+                        <li><a href="/profile">PROFILE</a></li>
                         <li><a href="/#contact">CONTACT</a></li>
                     </ul>
                 </nav>
