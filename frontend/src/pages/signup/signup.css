@@ -1,0 +1,94 @@
+.container{
+    display: flex;
+    justify-content: center;
+    padding: 4rem 0;
+}
+form{
+    background-color: #fff;
+    width: 500px;
+    padding: 0 4rem;
+    border-radius: 5px;
+    box-shadow: 0px 0px 10px rgba(0,0,0,0.13);
+    line-height: 1.5rem;
+}
+form h1{
+    text-align: center;
+    margin: 2.5rem;
+}
+form p{
+    font-family: 'Josefin Sans';
+    font-size: 1rem;
+    color: #074f6c;
+    margin-bottom: 1rem;
+}
+input, #gender, #address{
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+input:focus{
+    outline: none;
+    border: 1px solid #1e6e8e;
+}
+#fname, #lname, #phone-no, #password, #confirm_password, #email{
+    width: 95%;
+    border: 1px solid #ccc;
+}
+input:hover{
+    border: 1px solid #1e6e8e;
+    cursor: pointer;
+}
+.other_details{
+    display: flex;
+    justify-content: space-between;
+    outline: none;
+}
+button{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 1rem auto;
+    padding: 0.5rem;
+    background-color: #1ebd70;
+    border: 1px solid #1ebd70;
+    border-radius: 4px;
+    transition: 0.5s ease-in-out;
+}
+button:hover{
+    background-color: #056938;
+    color: #fff;
+    transform: scale(1.1);
+    cursor: pointer;
+}
+
+
+.input-container .error {
+    color: #ff3860;
+    font-size: 9px;
+    height: 13px;
+    margin-top: -5px;
+}
+::-ms-reveal {
+    outline: none;
+}
+
+@media screen and (max-width: 600px) {
+    form{
+        width: 400px;
+    }
+}
+@media screen and (max-width: 450px) {
+    form{
+        width: 300px;
+        padding: 0 2rem;
+    }
+    .other_details{
+        display: flex;
+        flex-direction: column;
+    }
+    form h1{
+        text-align: center;
+        margin: 2rem auto;
+    }
+}
