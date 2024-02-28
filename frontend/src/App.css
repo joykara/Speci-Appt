@@ -46,3 +46,6 @@ p{
   font-size: clamp(1.1rem, 1.3vw, 1.3rem);
   font-weight: 400;
 }
+.sp-main{
+  display: flex;
+}
