@@ -1,0 +1,36 @@
+.sp-hero-sect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    height: 100% !important;
+    width: 100% !important;
+}
+.sp-topbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    width: 90% !important;
+}
+.sp-tp-details{
+    display: flex;
+}
+.sp-tp-details li{
+    margin-right: 1.5rem;
+}
+.sp-header{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 4rem 5rem;
+    margin: 3rem 0 0;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    width: 90% !important;
+}
+.sp-overview{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 90% !important;
+}
