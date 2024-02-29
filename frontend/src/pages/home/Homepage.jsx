@@ -35,16 +35,8 @@ function Homepage() {
             <h4>Upcoming Appointment</h4>
             <div className="sp-ovw-cards">
               <div className="sp-ovw-card">
-                <h3>Income</h3>
+                <h4>Income</h4>
                 <p>$5,000</p>
-              </div>
-              <div className="sp-ovw-card">
-                <h3>Expenses</h3>
-                <p>$2,000</p>
-              </div>
-              <div className="sp-ovw-card">
-                <h3>Balance</h3>
-                <p>$3,000</p>
               </div>
             </div>
           </div>
