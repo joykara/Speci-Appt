@@ -11,20 +11,21 @@ const Navbar = () => {
     }
 
     return (
-      <div className="navbar-container">
+        <div className="navbar-container">
             <div className="navbar-logo">
                 {/* add logo as link to  home page */}
                 <Link to="/home">
                     <img src={logo} alt="logo" className="logo" />
                 </Link>
             </div>
-            <div>
-                <ul className="navbar-links">
-                    <li><a href="/appointments">APPOINTMENTS</a></li>
-                    <li><a href="/profile">PROFILE</a></li>
-                    <li><a href="/#contact">CONTACT</a></li>
-                </ul>
-            </div>
+
+            <ul className="navbar-links">
+                <li><a href="/appointments">APPOINTMENTS</a></li>
+                <li><a href="/profile">PROFILE</a></li>
+                <li><a href="/doctors">DOCTORS</a></li>
+                <li><a href="/contact">CONTACT</a></li>
+            </ul>
+
             {/* hamburger navbar */}
             <div className={`navbar-toggle ${toggleMenu ? 'active' : ''}`} onClick={handleToggle}>
                 {toggleMenu ? <RiCloseLine size={25} color='black'/> : <RiMenuLine size={25} color='black'/>}
@@ -33,7 +34,8 @@ const Navbar = () => {
                     <ul>
                         <li><a href="/appointments">APPOINTMENTS</a></li>
                         <li><a href="/profile">PROFILE</a></li>
-                        <li><a href="/#contact">CONTACT</a></li>
+                        <li><a href="/doctors">DOCTORS</a></li>
+                        <li><a href="/contact">CONTACT</a></li>
                     </ul>
                 </nav>
                 )}
