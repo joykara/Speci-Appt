@@ -7,11 +7,13 @@
   --links-font-family: 'EB Garamond', sans-serif;
   --links-font-family: 'Oswald', sans-serif;
 
-  --color-bg: #263738f7;
+  --light-button: #70f03e; /* green */
+  --dark-button: #284e03;
   --color-link: #C9DB3C;
   --color-blog: #042c54;
-  --color-text: #263738;
-  /* --color-bg: #2e754e; */
+  --light-text: #fff;
+  --dark-text: #263738;
+  --color-bg: #2e754e;
 
   --color-subtext: #FF8A71;
 }

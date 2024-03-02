@@ -1,5 +1,5 @@
 .sp-login {
-    height: calc(100vh - 10px);
+    height: calc(100vh - 1rem);
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -15,42 +15,46 @@
     font-size: 50px;
 }
 .sp-loginForm {
-    margin-top: 20px;
+    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
 }
 .sp-loginForm > label {
-    margin: 10px 0;
+    margin: 1rem 0;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
 }
 .sp-loginInput {
-    padding: 10px;
+    padding: 1rem;
     background-color: white;
     border: none;
-    border-radius: 10px;
+    border-radius: 1rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
 }
 .sp-loginInput:focus {
     outline: none;
 }
 .sp-loginButton {
-    margin-top: 20px;
+    margin-top: 1.5rem;
     cursor: pointer;
-    background-color: lightcoral;
     color: white;
-    padding: 10px;
+    padding: 1rem;
     border: none;
-    border-radius: 10px;
+    border-radius: 1rem;
     text-align: center;
 }
-.sp-loginRegisterButton {
+.sp-registerButton {
     position: absolute;
     top: 60px;
-    right: 20px;
+    right: 1.5rem;
     background-color: teal;
     cursor: pointer;
-    padding: 10px;
+    padding: 1rem;
     border: none;
     color: white;
-    border-radius: 10px;
+    border-radius: 1rem;
+}
+.sp-loginForm button {
+    justify-self: center;
 }
 .sp-loginForm button:disabled{
     background-color: rgb(88, 5, 5);

@@ -50,3 +50,20 @@ p{
   display: flex;
   height: 100vh;
 }
+.light-button{
+  background: var(--light-button);
+  color: var(--dark-text);
+  padding: 1rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s;
+  font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+  font-weight: 600;
+  margin: 1rem 0;
+  max-width: 200px;
+  text-transform: uppercase;
+}
+.light-button:hover{
+  background: var(--dark-button);
+  color: var(--light-text);
+}
