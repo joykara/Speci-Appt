@@ -4,31 +4,38 @@
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    background: linear-gradient(
-        rgba(255, 255, 255, 0.5),
-        rgba(255, 255, 255, 0.5)
-      ),
-      url("https://images.pexels.com/photos/768473/pexels-photo-768473.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500");
-    background-size: cover;
+    background: linear-gradient(180deg, rgba(94, 243, 101, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #ffffff;
 }
 .sp-loginTitle {
     font-size: 50px;
 }
 .sp-loginForm {
-    margin-top: 1.5rem;
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    margin: 1.5rem auto 0 auto;
+    background-color: #ffffff;
+    padding: 3rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 .sp-loginForm > label {
-    margin: 1rem 0;
+    margin: .5rem 0;
     font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    align-items: start;
+}
+.sp-loginForm span{
+    justify-content: center;
+    margin-bottom: 1.5rem;
 }
 .sp-loginInput {
     padding: 1rem;
+    margin-bottom: 1.2rem;
     background-color: white;
-    border: none;
-    border-radius: 1rem;
+    border: 1px solid rgb(107, 104, 104);
+    border-radius: .4rem;
     font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    width: 90%;
 }
 .sp-loginInput:focus {
     outline: none;
@@ -41,6 +48,7 @@
     border: none;
     border-radius: 1rem;
     text-align: center;
+    align-self: center;
 }
 .sp-registerButton {
     position: absolute;
