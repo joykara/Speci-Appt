@@ -1,5 +1,6 @@
 import React, { useRef, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
 import './login.css';
 
 const Login = () => {
@@ -25,6 +26,7 @@ const Login = () => {
     <div className="sp-login">
       <span className="sp-loginTitle">Login</span>
       <form className="sp-loginForm" onSubmit={handleSubmit}>
+        <span><FaUserCircle size={115} color='black' /></span>
         <label>Username</label>
         <input className="sp-loginInput" type="text" placeholder="Enter your username..." ref={userRef} />
         <label>Password</label>
