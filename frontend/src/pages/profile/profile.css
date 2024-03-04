@@ -1,0 +1,67 @@
+.sp-hd-profile{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 1.5rem;
+}
+.sp-hd-profile h3{
+    margin-left: 2rem;
+
+}
+
+/* Profile Details Display */
+.sp-hd-profileDetails{
+    display: grid;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 1rem 2.5rem;
+    align-items: center;
+    width: 90%;
+    margin: auto;
+}
+.sp-hd-profileDetails-item > label {
+    margin: .5rem 0;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    align-items: start;
+}
+.sp-hd-profileDetails-item input,
+.sp-hd-profileDetails-item textarea{
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    background-color: white;
+    border: 1px solid rgb(107, 104, 104);
+    border-radius: .4rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    width: 100%;
+}
+.sp-hd-profileDetails-item input:focus {
+    outline:auto !important;
+}
+.sp-hd-profileDetails-item p{
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    background-color: white;
+    border: 1px solid rgb(107, 104, 104);
+    border-radius: .4rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+}
+
+/* Profile Details Btn */
+.sp-hd-profileBtn{
+    display: flex;
+    justify-content: right;
+    align-items: right;
+    margin: 1.5rem 0 0 auto;
+}
+.sp-hd-profileBtn button{
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    align-self: center;
+    background-color: teal;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    width: 100px;
+}
