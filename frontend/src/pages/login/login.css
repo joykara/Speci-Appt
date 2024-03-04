@@ -26,7 +26,7 @@
 }
 .sp-loginForm span{
     justify-content: center;
-    margin-bottom: 1.5rem;
+    margin: 1rem auto 1.5rem;
 }
 .sp-loginInput {
     padding: 1rem;
@@ -52,7 +52,7 @@
 }
 .sp-registerButton {
     position: absolute;
-    top: 60px;
+    top: 3rem;
     right: 1.5rem;
     background-color: teal;
     cursor: pointer;
@@ -60,6 +60,7 @@
     border: none;
     color: white;
     border-radius: 1rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
 }
 .sp-loginForm button {
     justify-self: center;
