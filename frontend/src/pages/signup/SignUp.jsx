@@ -1,6 +1,17 @@
-import React, {useState} from 'react';
+import React, { useRef } from 'react';
+import { Link } from 'react-router-dom';
+import { FaUserCircle } from 'react-icons/fa';
+import './signup.css';
 
 const SignUp = () => {
+
+    const userRef = useRef();
+    const emailRef = useRef();
+    const contactRef = useRef();
+    const dobRef = useRef();
+    const passwordRef = useRef();
+    const confirmPasswordRef = useRef();
+
     const handleSubmit = (e) => {
         e.preventDefault();
         // Add your form submission logic here
@@ -9,53 +20,37 @@ const SignUp = () => {
 
     return (
         <div className="sp-sign">
-            <form id="form" name="myForm" onSubmit={handleSubmit}>
-                <h1>Registration Form</h1>
-                <p>Please fill in this form to create an account.</p>
+            <span className="sp-signTitle">Sign Up</span>
+            <form className="sp-signForm" onSubmit={handleSubmit}>
+                <span><FaUserCircle size={115} color='black' /></span>
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="fname">First Name:</label><br />
-                    <input type="text" id="fname" name="fname" placeholder="Enter your first name.." /><br />
-                </div>
+                <label>Username</label>
+                <input className="sp-signInput" type="text" placeholder="Enter your username..." ref={userRef} />
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="lname">Last Name:</label><br />
-                    <input type="text" id="lname" name="lname" placeholder="Enter your last name.." /><br />
-                </div>
+                <label>Email</label>
+                <input className="sp-signInput" type="email" placeholder="Enter your email..." ref={emailRef} />
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="email">Email Address:</label><br />
-                    <input type="email" id="email" name="email" placeholder="Enter your email.." /><br />
-                </div>
+                {/* contact */}
+                <label>Contact</label>
+                <input className="sp-signInput" type="text" placeholder="Enter your contact..." ref={contactRef} />
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="phone-number">Phone Number:</label><br />
-                    <input type="tel" id="phone-no" name="number" placeholder="Enter your phone number" /><br />
-                </div>
+                {/* dob */}
+                <label title='date'>Date of Birth</label>
+                <input className="sp-signInput" type="date" ref={dobRef} />
 
-                <div className="dob">
-                    <label htmlFor="dob">Date of Birth:</label><br />
-                    <input type="date" id="dob" name="dob" /><br />
-                </div>
+                <label>Password</label>
+                <input className="sp-signInput" type="password" placeholder="Enter your password..." ref={passwordRef} />
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="password">Password:</label><br />
-                    <input type="password" id="password" name="password" placeholder="Enter your password.." /><br />
-                </div>
+                <label>Confirm Password</label>
+                <input className="sp-signInput" type="password" placeholder="Confirm your password..." ref={confirmPasswordRef} />
 
-                <div className="input-container">
-                    <div className="error"></div>
-                    <label htmlFor="confirm_password">Confirm Password:</label><br />
-                    <input type="password" id="confirm_password" name="confirm_password" placeholder="Confirm your password.." /><br />
-                </div>
-
-                <button type="submit">Submit</button>
+                <button className="light-button" type="submit">
+                    Sign In
+                </button>
             </form>
+            <Link to={'/login'}>
+                <button className="sp-registerButton">Have an account? Login </button>
+            </Link>
         </div>
     );
 }

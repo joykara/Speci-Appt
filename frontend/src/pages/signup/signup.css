@@ -1,94 +1,79 @@
-.container{
+.sp-sign {
+    height: 100%;
     display: flex;
+    flex-direction: column;
+    align-items: center;
     justify-content: center;
-    padding: 4rem 0;
+    padding: 3rem 0;
+    background: linear-gradient(180deg, rgba(94, 243, 101, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #ffffff;
 }
-form{
-    background-color: #fff;
-    width: 500px;
-    padding: 0 4rem;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0,0,0,0.13);
-    line-height: 1.5rem;
-}
-form h1{
-    text-align: center;
-    margin: 2.5rem;
-}
-form p{
-    font-family: 'Josefin Sans';
-    font-size: 1rem;
-    color: #074f6c;
+.sp-signTitle {
+    font-size: 3rem;
     margin-bottom: 1rem;
 }
-input, #gender, #address{
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
-input:focus{
-    outline: none;
-    border: 1px solid #1e6e8e;
-}
-#fname, #lname, #phone-no, #password, #confirm_password, #email{
-    width: 95%;
-    border: 1px solid #ccc;
-}
-input:hover{
-    border: 1px solid #1e6e8e;
-    cursor: pointer;
-}
-.other_details{
+.sp-signForm {
     display: flex;
-    justify-content: space-between;
-    outline: none;
-}
-button{
-    display: flex;
+    flex-direction: column;
     justify-content: center;
-    align-items: center;
+    width: 500px;
+    /* height: 80vh; */
+    margin: 1.5rem auto 0 auto;
+    background-color: #ffffff;
+    padding: 1rem 3rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.sp-signForm > label {
+    margin: .5rem 0;
+    font-size: clamp(1rem, 1.2vw, 1.2rem);
+    align-items: start;
+}
+.sp-signForm span{
+    justify-content: center;
     margin: 1rem auto;
-    padding: 0.5rem;
-    background-color: #1ebd70;
-    border: 1px solid #1ebd70;
-    border-radius: 4px;
-    transition: 0.5s ease-in-out;
 }
-button:hover{
-    background-color: #056938;
-    color: #fff;
-    transform: scale(1.1);
-    cursor: pointer;
+.sp-signInput,
+.sp-signInput input[type="date"] {
+    padding: .5rem 1rem;
+    margin-bottom: .5rem;
+    background-color: white;
+    border: 1px solid rgb(107, 104, 104);
+    border-radius: .4rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    width: 90%;
 }
-
-
-.input-container .error {
-    color: #ff3860;
-    font-size: 9px;
-    height: 13px;
-    margin-top: -5px;
-}
-::-ms-reveal {
+.sp-signInput:focus {
     outline: none;
 }
-
-@media screen and (max-width: 600px) {
-    form{
-        width: 400px;
-    }
+.sp-signButton {
+    margin-top: 1.5rem;
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    align-self: center;
 }
-@media screen and (max-width: 450px) {
-    form{
-        width: 300px;
-        padding: 0 2rem;
-    }
-    .other_details{
-        display: flex;
-        flex-direction: column;
-    }
-    form h1{
-        text-align: center;
-        margin: 2rem auto;
-    }
+.sp-registerButton {
+    position: absolute;
+    top: 3rem;
+    right: 1.5rem;
+    background-color: teal;
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+}
+.sp-registerButton:hover {
+    background: var(--light-button);
+    color: var(--dark-text);
+}
+.sp-signForm button {
+    justify-self: center;
+}
+.sp-signForm button:disabled{
+    background-color: rgb(88, 5, 5);
+    cursor: not-allowed;
 }
