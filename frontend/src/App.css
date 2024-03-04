@@ -40,7 +40,7 @@ a{
   color: #000;
   font-family: var(--links-font-family);
 }
-p{
+p, label, span{
   font-family: var(--font-family);
   line-height: 32px;
   font-size: clamp(1.1rem, 1.3vw, 1.3rem);
@@ -59,9 +59,10 @@ p{
   transition: 0.3s;
   font-size: clamp(1.1rem, 1.3vw, 1.3rem);
   font-weight: 600;
-  margin: 1rem 0;
-  max-width: 200px;
+  margin: 1rem auto;
+  width: 200px;
   text-transform: uppercase;
+  justify-content: center;
 }
 .light-button:hover{
   background: var(--dark-button);
