@@ -1,24 +1,19 @@
 const express = require("express");
-const dotenv = require("dotenv");
-const mongoose = require("mongoose");
+require("dotenv").config();
+const dbConfig = require("./config/dbConfig");
+const router = require('express').Router();
+const userRoute = require("./routes/userRoute");
 const app = express();
+app.use(express.json());
 
 const port = process.env.PORT || 5000;
 
+router.route('/').get((req, res) => {
+    res.json('Welcome to the homepage');
+})
+app.use('/api/user', userRoute)
 
-// Load env variables
-dotenv.config();
 
-// Connect to database
-mongoose
-    .connect(process.env.MONGO_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-    })
-    .then(() =>
-        console.log("MongoDB connected"))
-    .catch((err) =>
-        console.log(err));
 
 app.listen(port, () => {
   console.log(`Server is running on port ${port}`);
