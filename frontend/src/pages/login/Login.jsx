@@ -8,10 +8,11 @@ const Login = () => {
   const userRef = useRef();
   const passwordRef = useRef();
 
-  // handle submit and set up email.js
-  const handleSubmit = (e) => {
+  // handle submit and show data
+  const handleSubmit = (e, values) => {
     e.preventDefault();
-    console.log('Form submitted!');
+    console.log('Form submitted!', values);
+
 
     // go to homepage on successful submission
     if (userRef.current.value === 'admin' && passwordRef.current.value === 'admin') {
@@ -24,7 +25,7 @@ const Login = () => {
 
   return (
     <div className="sp-login">
-      <span className="sp-loginTitle">Login</span>
+      <span className="sp-loginTitle">Welcome Back</span>
       <form className="sp-loginForm" onSubmit={handleSubmit}>
         <span><FaUserCircle size={115} color='black' /></span>
         <label>Username</label>
