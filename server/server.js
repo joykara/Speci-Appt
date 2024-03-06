@@ -1,10 +1,12 @@
 const express = require("express");
 require("dotenv").config();
+const cors = require("cors");
 const dbConfig = require("./config/dbConfig");
 const router = require('express').Router();
 const userRoute = require("./routes/userRoute");
 const app = express();
 app.use(express.json());
+app.use(cors());
 
 const port = process.env.PORT || 5000;
 
