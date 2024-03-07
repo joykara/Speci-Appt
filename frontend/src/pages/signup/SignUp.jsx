@@ -23,13 +23,17 @@ const SignUp = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-    const response = await axios.post(`${BASE_URL}/user/register`, formData);
-      if (response.data.success) {
-        window.location.replace('/'); // Redirect to homepage after successful registration
-        toast.success(response.data.msg);
-      } else {
-        toast.error(response.data.msg);
-      }
+        if(formData.password !== formData.confirmPassword){
+            return toast.error('Passwords do not match');
+        }
+
+        const response = await axios.post(`${BASE_URL}/user/register`, formData);
+        if (response.data.success) {
+            window.location.replace('/'); // Redirect to homepage after successful registration
+            toast.success(response.data.msg);
+        } else {
+            toast.error(response.data.msg);
+        }
     } catch (error) {
       toast.error('An error occurred while signing up');
     }
