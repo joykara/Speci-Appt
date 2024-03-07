@@ -1,26 +1,36 @@
-import React, { useRef, useState } from 'react';
+import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import { FaUserCircle } from 'react-icons/fa';
 import './login.css';
+import axios from 'axios';
+import toast from 'react-hot-toast';
+import { BASE_URL } from '../../utils/config';
 
 const Login = () => {
   const navigate = useNavigate();
-  const userRef = useRef();
-  const passwordRef = useRef();
+  const [values, setValues] = useState({ email: '', password: '' });
 
   // handle submit and show data
-  const handleSubmit = (e, values) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    console.log('Form submitted!', values);
-
-
-    // go to homepage on successful submission
-    if (userRef.current.value === 'admin' && passwordRef.current.value === 'admin') {
-      console.log('Logged in');
-      navigate('/home');
-    } else {
-      console.log('Wrong username or password');
+    try {
+      const response = await axios.post(`${BASE_URL}/user/login`, values);
+      if (response.data.success) { // Redirect to homepage after successful registration
+        toast.success(response.data.msg);
+        localStorage.setItem('token', response.data.token);
+        setTimeout(() => navigate('/home'), 1000);
+      } else {
+        toast.error(response.data.msg);
+      }
+    } catch (error) {
+      toast.error('An error occurred while signing up');
     }
+  };
+
+  // handle input changes
+  const handleChange = (e) => {
+    const { name, value } = e.target;
+    setValues({ ...values, [name]: value });
   };
 
   return (
@@ -28,10 +38,10 @@ const Login = () => {
       <span className="sp-loginTitle">Welcome Back</span>
       <form className="sp-loginForm" onSubmit={handleSubmit}>
         <span><FaUserCircle size={115} color='black' /></span>
-        <label>Username</label>
-        <input className="sp-loginInput" type="text" placeholder="Enter your username..." ref={userRef} />
+        <label>Email</label>
+        <input className="sp-loginInput" type="text" name="email" placeholder="Enter your email..." value={values.email} onChange={handleChange} />
         <label>Password</label>
-        <input className="sp-loginInput" type="password" placeholder="Enter your password..." ref={passwordRef} />
+        <input className="sp-loginInput" type="password" name="password" placeholder="Enter your password..." value={values.password} onChange={handleChange} />
         <button className="light-button" type="submit">
           Login
         </button>
