@@ -2,6 +2,7 @@ const router = require('express').Router();
 const User = require('../models/userModel');
 const jwt = require("jsonwebtoken");
 const bcrypt = require("bcrypt");
+const verifyToken = require('../middlewares/verifyToken');
 
 
 router.route('/').get((req, res) => {
@@ -65,5 +66,28 @@ router.post('/login', async (req, res) => {
         res.status(500).json({ msg: "Something went wrong!", success: false });
     }
 });
+
+// Get profile
+router.post('/profile', verifyToken, async (req, res) => {
+    try {
+        const user = await User.findOne({_id: req.body.userId});
+        if (!user) {
+            return res.status(404).json({ msg: "User not found", success: false });
+        }
+        res.status(200).json({
+            success: true, data: {
+                username: user.username,
+                email: user.email,
+                contact: user.contact,
+                address: user.address,
+                dob: user.dob
+            }
+        });
+    } catch (err) {
+        console.error("Error getting user profile:", err);
+        res.status(500).json({ msg: "Error getting user profile", success: false });
+    }
+});
+
 
 module.exports = router;
