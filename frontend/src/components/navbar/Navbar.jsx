@@ -1,10 +1,12 @@
-import React, {useState} from 'react';
+import React, {useState, useContext} from 'react';
 import './navbar.css';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
 import logo from "../../assets/speciappt.png";
 
+
 const Navbar = () => {
+
     const [toggleMenu, setToggleMenu] = useState(false);
     const handleToggle = () => {
         setToggleMenu(!toggleMenu)
@@ -14,7 +16,7 @@ const Navbar = () => {
         <div className="navbar-container">
             <div className="navbar-logo">
                 {/* add logo as link to  home page */}
-                <Link to="/home">
+                <Link to="/">
                     <img src={logo} alt="logo" className="logo" />
                 </Link>
             </div>

@@ -18,7 +18,7 @@ const Login = () => {
       if (response.data.success) { // Redirect to homepage after successful registration
         toast.success(response.data.msg);
         localStorage.setItem('token', response.data.token);
-        setTimeout(() => navigate('/home'), 1000);
+        setTimeout(() => navigate('/'), 1000);
       } else {
         toast.error(response.data.msg);
       }
