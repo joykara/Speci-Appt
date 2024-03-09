@@ -5,8 +5,11 @@ import './login.css';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { BASE_URL } from '../../utils/config';
+import { useSelector, useDispatch } from 'react-redux';
+import { hideLoading, showLoading } from '../../redux/alertsSlice';
 
 const Login = () => {
+  const dispatch = useDispatch();
   const navigate = useNavigate();
   const [values, setValues] = useState({ email: '', password: '' });
 
@@ -14,7 +17,9 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
+      dispatch(showLoading())
       const response = await axios.post(`${BASE_URL}/user/login`, values);
+      dispatch(hideLoading());
       if (response.data.success) { // Redirect to homepage after successful registration
         toast.success(response.data.msg);
         localStorage.setItem('token', response.data.token);
@@ -23,6 +28,7 @@ const Login = () => {
         toast.error(response.data.msg);
       }
     } catch (error) {
+      dispatch(hideLoading());
       toast.error('An error occurred while signing up');
     }
   };

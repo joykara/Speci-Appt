@@ -5,8 +5,11 @@ import axios from 'axios';
 import './signup.css';
 import toast from 'react-hot-toast';
 import { BASE_URL } from '../../utils/config';
+import { useDispatch } from 'react-redux';
+import { hideLoading, showLoading } from '../../redux/alertsSlice';
 
 const SignUp = () => {
+  const dispatch = useDispatch();
   const [formData, setFormData] = useState({
     username: '',
     email: '',
@@ -27,7 +30,9 @@ const SignUp = () => {
             return toast.error('Passwords do not match');
         }
 
+        dispatch(showLoading());
         const response = await axios.post(`${BASE_URL}/user/register`, formData);
+        dispatch(hideLoading());
         if (response.data.success) {
             window.location.replace('/'); // Redirect to homepage after successful registration
             toast.success(response.data.msg);
@@ -35,6 +40,7 @@ const SignUp = () => {
             toast.error(response.data.msg);
         }
     } catch (error) {
+      dispatch(hideLoading());
       toast.error('An error occurred while signing up');
     }
   };
