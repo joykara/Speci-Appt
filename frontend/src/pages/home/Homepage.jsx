@@ -71,8 +71,9 @@ const Homepage = () => {
             <h4>Upcoming Appointment</h4>
             <div className="sp-ovw-cards">
               <div className="sp-ovw-card">
-                <h4>Income</h4>
-                <p>$5,000</p>
+                <h5>Dr. John Doe</h5>
+                <p>Cardiologist</p>
+                <p>12:00 PM</p>
               </div>
             </div>
           </div>
