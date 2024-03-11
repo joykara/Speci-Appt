@@ -1,4 +1,5 @@
-import React, {useState, useContext} from 'react';
+import React, { useState, useContext } from 'react';
+import { useLocation } from 'react-router-dom';
 import './navbar.css';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { Link } from 'react-router-dom';
@@ -12,6 +13,13 @@ const Navbar = () => {
         setToggleMenu(!toggleMenu)
     }
 
+    const location = useLocation();
+
+    // Function to check if the current path matches the link path
+    const isActive = (path) => {
+        return location.pathname === path;
+    };
+
     return (
         <div className="navbar-container">
             <div className="navbar-logo">
@@ -22,8 +30,9 @@ const Navbar = () => {
             </div>
 
             <ul className="navbar-links">
-                <li><a href="/appointments">APPOINTMENTS</a></li>
-                <li><a href="/profile">PROFILE</a></li>
+                <li className={`${isActive("/appointments") ? 'active-menu' : ''}`}><a href="/appointments">APPOINTMENTS</a></li>
+                <li className={`${isActive("/profile") ? 'active-menu' : ''}`}><a href="/profile">PROFILE</a></li>
+                
                 <li><a href="/doctors">DOCTORS</a></li>
                 <li><a href="/contact">CONTACT</a></li>
             </ul>
