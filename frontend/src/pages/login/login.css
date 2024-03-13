@@ -1,0 +1,71 @@
+.sp-login {
+    height: calc(100vh - 1rem);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(180deg, rgba(94, 243, 101, 0.5) 0%, rgba(255, 255, 255, 0.5) 100%), #ffffff;
+}
+.sp-loginTitle {
+    font-size: 50px;
+}
+.sp-loginForm {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    width: 500px;
+    margin: 1.5rem auto 0 auto;
+    background-color: #ffffff;
+    padding: 3rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
+}
+.sp-loginForm > label {
+    margin: .5rem 0;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    align-items: start;
+}
+.sp-loginForm span{
+    justify-content: center;
+    margin: 1rem auto 1.5rem;
+}
+.sp-loginInput {
+    padding: 1rem;
+    margin-bottom: 1.2rem;
+    background-color: white;
+    border: 1px solid rgb(107, 104, 104);
+    border-radius: .4rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+    width: 90%;
+}
+.sp-loginInput:focus {
+    outline: none;
+}
+.sp-loginButton {
+    margin-top: 1.5rem;
+    cursor: pointer;
+    color: white;
+    padding: 1rem;
+    border: none;
+    border-radius: 1rem;
+    text-align: center;
+    align-self: center;
+}
+.sp-registerButton {
+    position: absolute;
+    top: 3rem;
+    right: 1.5rem;
+    background-color: teal;
+    cursor: pointer;
+    padding: 1rem;
+    border: none;
+    color: white;
+    border-radius: 1rem;
+    font-size: clamp(1.1rem, 1.3vw, 1.3rem);
+}
+.sp-loginForm button {
+    justify-self: center;
+}
+.sp-loginForm button:disabled{
+    background-color: rgb(88, 5, 5);
+    cursor: not-allowed;
+}

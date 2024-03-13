@@ -1,13 +1,17 @@
 .navbar-container{
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-direction: column;
+    justify-content:left;
+    align-items:start;
     background-color: #ffffffb8;
-    padding: 1.5rem 1.5rem 1rem;
-    width: 100%;
+    padding: 1.5rem 0;
+    width: 25vw;
+    height: 100vh;
     position: sticky;
     top: 0;
     z-index: 2;
+    /* box-shadow */
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.1);
 }
 .navbar-logo{
     display: flex;
@@ -16,22 +20,29 @@
     font-size: 1.5rem;
     font-weight: 700;
     color: #000000;
+    margin: 2rem 0;
 }
 .navbar-logo img{
-    width: 50px;
-    height: 50px;
-    margin-right: 0.5rem;
+    width: 150px;
+    height: 150px;
+    margin-left: 0.5rem;
 }
 .navbar-links{
     display: flex;
+    flex-direction: column;
     justify-content: flex-end;
-    align-items: center;
+    align-items: start;
+    margin-top: 4rem ;
+    width: 100%;
 }
 .navbar-links li{
-    margin: 0 1rem;
+    margin: 1rem 0;
+    padding: 1rem;
+    width: 100%;
 }
 .navbar-links li a,
 .navbar-menu-mobile ul li a{
+    margin-left: 1rem;
     color: #000000;
     font-weight: 500;
     font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
@@ -69,7 +80,7 @@
 }
 .navbar-links li a:hover,
 .navbar-menu-mobile ul li a:hover {
-    color: var(--color-secondary);
+    color: var(--color-link);
 }
 
 .navbar-links li:last-child button,
@@ -84,9 +95,12 @@
 .navbar-links li:last-child button:hover,
 .navbar-menu-mobile ul li:last-child button:hover {
     background-color: #ffffff;
-    color: var(--color-secondary);
+    color: var(--color-link);
 }
-
+.active-menu{
+    color: #ffffff;
+    background-color: #024c44;
+}
 
 /* MEDIA QUERIES */
 @media screen and (max-width: 768px) {
