@@ -67,4 +67,23 @@ router.delete('/:id', async (req, res) => {
   }
 });
 
+// Check doctor availability
+router.post('/availability', async (req, res) => {
+  try {
+    const { date, doctor } = req.body;
+    const appointments = await Doctor.find({
+      _id: doctor,
+      appointments: { $elemMatch: { date, status: 'Upcoming' } }
+    });
+    if (appointments.length > 0) {
+      return res.send('Doctor is not available');
+    }
+    res.send('Doctor is available');
+  } catch (error) {
+    console.error('Error checking doctor availability:', error);
+    res.status(500).send('Server Error');
+  }
+});
+
+
 module.exports = router;
