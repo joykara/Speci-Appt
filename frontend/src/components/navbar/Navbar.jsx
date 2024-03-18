@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useLocation, Link, useNavigate } from 'react-router-dom';
 import { RiMenuLine, RiCloseLine } from 'react-icons/ri';
 import { useDispatch, useSelector } from 'react-redux';
@@ -11,7 +11,13 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const [toggleMenu, setToggleMenu] = useState(false);
     const location = useLocation();
-    const isAdmin = useSelector(state => state.user.isAdmin === true );
+    const [isAdmin, setIsAdmin] = useState(false);
+    const user = useSelector((state) => state.user.user);
+
+    useEffect(() => {
+        setIsAdmin(user?.isAdmin);
+        console.log(isAdmin)
+    }, [user]);
 
     const handleToggle = () => {
         setToggleMenu(!toggleMenu);
