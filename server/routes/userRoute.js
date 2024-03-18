@@ -48,6 +48,10 @@ router.post('/login', async (req, res) => {
             return res.status(200).send({ msg: "User does not exist", success: false });
         }
 
+        if (!user.isAdmin) {
+            return res.status(200).send({ msg: "User is not an admin", success: false });
+        }
+
         const validPass = await bcrypt.compare(req.body.password, user.password);
         if (!validPass) {
             return res.status(200).send({ msg: "Invalid password", success: false });
@@ -60,7 +64,7 @@ router.post('/login', async (req, res) => {
 
         // Return response with token
         res.cookie('token', token, { httpOnly: true })
-            .json({ token: token, msg: "Logged in successfully", success: true });
+            .json({ token: token, admin: true, msg: "Logged in successfully", success: true });
     } catch (err) {
         console.error("Error logging in:", err);
         res.status(500).json({ msg: "Something went wrong!", success: false });

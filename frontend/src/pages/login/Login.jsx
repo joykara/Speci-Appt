@@ -23,6 +23,10 @@ const Login = () => {
       if (response.data.success) { // Redirect to homepage after successful registration
         toast.success(response.data.msg);
         localStorage.setItem('token', response.data.token);
+
+        if (response.data.admin) {
+          localStorage.setItem('admin', 'true'); // Set admin flag in localStorage
+        }
         setTimeout(() => navigate('/'), 1000);
       } else {
         toast.error(response.data.msg);
