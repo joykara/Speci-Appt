@@ -32,7 +32,8 @@ const Navbar = () => {
             <ul className="navbar-links">
                 <li className={`${isActive("/appointments") ? 'active-menu' : ''}`}><a href="/appointments">APPOINTMENTS</a></li>
                 <li className={`${isActive("/profile") ? 'active-menu' : ''}`}><a href="/profile">PROFILE</a></li>
-                
+                <li className={`${isActive("/doctors") ? 'active-menu' : ''}`}><a href="/doctors">DOCTORS</a></li>
+                <li className={isActive('/apply-doctor') ? 'active-menu' : ''}><a href="/apply-doctor">APPLY DOCTOR</a></li>
                 <li><a href="/doctors">DOCTORS</a></li>
                 <li><a href="/contact">CONTACT</a></li>
             </ul>
