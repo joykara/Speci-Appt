@@ -16,7 +16,7 @@ router.route('/').get((req, res) => {
     res.json('Welcome to the homepage');
 })
 
-app.use('/api/user', userRoute)
+app.use('/api/users', userRoute)
 app.use('/api/appointments', apptRoute)
 app.use('/api/doctors', doctorsRoute)
 

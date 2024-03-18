@@ -2,17 +2,42 @@ import React, { useState } from 'react';
 import { Navbar, ScrollToTop } from '../../components';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 import './profile.css';
 
 function Profile() {
-  const [user, setUser] = useState({
-    name: 'John Doe',
-    email: 'john.doe@example.com',
-    phone: '+1234567890',
-    address: '1234 Main St, City, Country',
-    dob: new Date().toLocaleDateString(),
-    password: 'password'
-  });
+  const navigate = useNavigate();
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+
+  useEffect(() => {
+    const fetchUser = async () => {
+      try {
+        const token = localStorage.getItem('token');
+        if (!token) {
+          // Redirect to login page if token is not available
+          navigate('/login');
+          return;
+        }
+
+        // Fetch user data using the JWT token
+        const response = await axios.post(`${BASE_URL}/users/profile`, {} , {
+          headers: { Authorization: `Bearer ${token}` },
+        });
+
+        // console.log(user)
+        dispatch(setUser(response.data.data))
+
+      } catch (error) {
+        // Handle errors
+        console.error('Error fetching user data:', error);
+        toast.error('Error fetching user data');
+      }
+    };
+
+    fetchUser();
+  }, [dispatch, navigate]);
 
   const [editMode, setEditMode] = useState(false);
 
@@ -37,12 +62,8 @@ function Profile() {
               <p>{new Date().toLocaleDateString()}</p>
             </div>
             <ul className="sp-tp-details">
-              <li onClick={handleEdit}>
-                <IoMdNotificationsOutline size={35} />
-              </li>
-              <li onClick={handleEdit}>
-                <FaUserCircle size={35} color="green" />
-              </li>
+              <li> <IoMdNotificationsOutline size={35} /> </li>
+              <li> <FaUserCircle size={35} color="green" /> </li>
             </ul>
           </div>
 

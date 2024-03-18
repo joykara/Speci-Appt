@@ -27,7 +27,7 @@ const Homepage = () => {
         }
 
         // Fetch user data using the JWT token
-        const response = await axios.post(`${BASE_URL}/user/profile`, {} , {
+        const response = await axios.post(`${BASE_URL}/users/profile`, {} , {
           headers: { Authorization: `Bearer ${token}` },
         });
 

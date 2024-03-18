@@ -18,7 +18,7 @@ const Login = () => {
     e.preventDefault();
     try {
       dispatch(showLoading())
-      const response = await axios.post(`${BASE_URL}/user/login`, values);
+      const response = await axios.post(`${BASE_URL}/users/login`, values);
       dispatch(hideLoading());
       if (response.data.success) { // Redirect to homepage after successful registration
         toast.success(response.data.msg);
