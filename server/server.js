@@ -5,6 +5,7 @@ const dbConfig = require("./config/dbConfig");
 const router = require('express').Router();
 const userRoute = require("./routes/userRoute");
 const apptRoute = require("./routes/apptRoute");
+const doctorsRoute = require("./routes/doctorsRoute");
 const app = express();
 app.use(express.json());
 app.use(cors());
@@ -17,6 +18,7 @@ router.route('/').get((req, res) => {
 
 app.use('/api/user', userRoute)
 app.use('/api/appointments', apptRoute)
+app.use('/api/doctors', doctorsRoute)
 
 
 
