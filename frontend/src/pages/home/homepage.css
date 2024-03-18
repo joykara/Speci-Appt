@@ -3,9 +3,10 @@
     flex-direction: column;
     align-items: center;
     padding: 0 1rem;
-    margin: 1rem 0;
+    margin: 0;
     height: 100% !important;
     width: 100% !important;
+    background: linear-gradient(135deg, #77ff008d 0%, #00d4aa75 70%, #82eebc8d 100%);
 }
 .sp-topbar{
     display: flex;
@@ -28,6 +29,7 @@
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     width: 90% !important;
+    background: #fff;
 }
 .sp-overview{
     display: flex;
