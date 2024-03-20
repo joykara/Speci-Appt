@@ -18,10 +18,10 @@ router.post('/register', async (req, res) => {
 router.get('/', async (req, res) => {
   try {
     const doctors = await Doctor.find();
-    res.send(doctors);
+    res.send({ data: doctors, success: true, msg: "Doctors fetched successfully" });
   } catch (error) {
     console.error('Error fetching doctors:', error);
-    res.status(500).send('Server Error');
+    res.status(500).send({ msg:'Server Error', success: false});
   }
 });
 
