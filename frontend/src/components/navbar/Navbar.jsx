@@ -11,13 +11,7 @@ const Navbar = () => {
     const dispatch = useDispatch();
     const [toggleMenu, setToggleMenu] = useState(false);
     const location = useLocation();
-    const [isAdmin, setIsAdmin] = useState(false);
-    const user = useSelector((state) => state.user.user);
-
-    useEffect(() => {
-        setIsAdmin(user?.isAdmin);
-        console.log(isAdmin)
-    }, [user]);
+    const isAdmin = useSelector(state => state.user.isAdmin);
 
     const handleToggle = () => {
         setToggleMenu(!toggleMenu);
@@ -43,9 +37,19 @@ const Navbar = () => {
             </div>
 
             <ul className="navbar-links">
-                <li className={`${isActive("/appointments") ? 'active-menu' : ''}`}>
+                {!isAdmin && (<li className={`${isActive("/appointments") ? 'active-menu' : ''}`}>
                     <Link to="/appointments">APPOINTMENTS</Link>
-                </li>
+                </li>)}
+                {isAdmin && (
+                    <li className={`${isActive("/set-appointment") ? 'active-menu' : ''}`}>
+                        <Link to="/set-appointment">SET APPOINTMENT</Link>
+                    </li>
+                )}
+                {isAdmin && (
+                    <li className={`${isActive("/admin-appts") ? 'active-menu' : ''}`}>
+                        <Link to="/admin-appts">ALL APPOINTMENTS</Link>
+                    </li>
+                )}
                 {!isAdmin && (
                     <li className={`${isActive("/profile") ? 'active-menu' : ''}`}>
                         <Link to="/profile">PROFILE</Link>
@@ -57,6 +61,11 @@ const Navbar = () => {
                     </li>
                 )}
                 {isAdmin && (
+                    <li className={`${isActive("/users") ? 'active-menu' : ''}`}>
+                        <Link to="/users">USERS</Link>
+                    </li>
+                )}
+                {isAdmin && (
                     <li className={isActive('/apply-doctor') ? 'active-menu' : ''}>
                         <Link to="/apply-doctor">APPLY DOCTOR</Link>
                     </li>
@@ -64,7 +73,7 @@ const Navbar = () => {
                 <li><a onClick={handleLogout}>LOGOUT</a></li>
             </ul>
 
-            <div className={`navbar-toggle ${toggleMenu ? 'active' : ''}`} onClick={handleToggle}>
+            {/* <div className={`navbar-toggle ${toggleMenu ? 'active' : ''}`} onClick={handleToggle}>
                 {toggleMenu ? <RiCloseLine size={25} color='black'/> : <RiMenuLine size={25} color='black'/>}
                 {toggleMenu && (
                     <nav className="navbar-menu-mobile">
@@ -76,7 +85,7 @@ const Navbar = () => {
                         </ul>
                     </nav>
                 )}
-            </div>
+            </div> */}
         </div>
     );
 }
