@@ -1,70 +1,79 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
-import { Navbar } from '../../components';
+import { BASE_URL } from '../../utils/config';
+import { Navbar, Topbar } from '../../components';
+import { toast } from 'react-hot-toast';
 
-const Appointments = ({ patientId }) => {
+const Appointments = () => {
   const [appointments, setAppointments] = useState([]);
+  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get(`/api/appointments?patientId=${patientId}`);
-        setAppointments(response.data.appointments);
+        const response = await axios.get(`${BASE_URL}/appointments/user-appointment`, {
+          params: {
+            page: page // Pass current page as query parameter
+          },
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}` // Include JWT token for authentication
+          }
+        });
+        if (response.data && response.data.appointments) {
+          setAppointments(response.data.appointments);
+        }
       } catch (error) {
-        console.error('Error fetching appointments:', error);
+        toast.error('Error fetching appointments:', error);
       }
     };
 
     fetchAppointments();
-  }, [patientId]);
+  }, [page]); // Fetch appointments when currentPage changes
 
-    return (
-      <div className="sp-main">
-        <Navbar />
-        <div>
-        <h1>Your Appointments</h1>
-        <div>
-            <h2>Upcoming Appointments</h2>
-            <ul>
-            {appointments
-                .filter((appt) => appt.status === 'Upcoming')
-                .map((appt) => (
-                <li key={appt.id}>
-                    <div>
-                    <strong>Doctor Name:</strong> {appt.doctorName}
-                    </div>
-                    <div>
-                    <strong>Date:</strong> {appt.date}
-                    </div>
-                    <div>
-                    <strong>Time:</strong> {appt.time}
-                    </div>
-                </li>
-                ))}
-            </ul>
+  const handleNextPage = () => {
+    setPage((prevPage) => prevPage +1);
+  };
+
+  const handlePrevPage = () => {
+    setPage((prevPage) => prevPage - 1);
+  };
+
+  return (
+    <div className="sp-doc-main">
+      <Navbar />
+      <section className="sp-doc-sect">
+        <Topbar title="My Appointments" />
+
+        <div className="sp-dash-appt">
+          <table className="sp-table">
+            <thead>
+              <tr>
+                <th>Doctor</th>
+                <th>Date</th>
+                <th>Time</th>
+                <th>Reason</th>
+                <th>Status</th>
+              </tr>
+            </thead>
+            <tbody>
+              {appointments.map(appointment => (
+                <tr key={appointment._id}>
+                  <td>{appointment.doctor.firstName} {appointment.doctor.lastName}</td>
+                  <td>{new Date(appointment.date).toLocaleDateString()}</td>
+                  <td>{appointment.time}</td>
+                  <td>{appointment.reason}</td>
+                  <td>{appointment.status}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+          <div className='sp-tablePage'>
+              <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
+              <button onClick={handleNextPage}>Next</button>
+            </div>
         </div>
-        <div>
-            <h2>Past Appointments</h2>
-            <ul>
-            {appointments
-                .filter((appt) => appt.status === 'Past')
-                .map((appt) => (
-                <li key={appt.id}>
-                    <div>
-                    <strong>Doctor Name:</strong> {appt.doctorName}
-                    </div>
-                    <div>
-                    <strong>Date:</strong> {appt.date}
-                    </div>
-                    <div>
-                    <strong>Time:</strong> {appt.time}
-                    </div>
-                </li>
-                ))}
-            </ul>
-        </div>
-        </div>
-      </div>
+      </section>
+    </div>
   );
 };
 
