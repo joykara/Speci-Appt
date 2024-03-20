@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
-import { Navbar } from '../../components';
+import { Navbar, Topbar } from '../../components';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
 
@@ -12,8 +12,12 @@ const Doctors = () => {
   useEffect(() => {
     const fetchDoctors = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/doctors?page=${page}&limit=20`);
-        setDoctors(response.data);
+        const response = await axios.get(`${BASE_URL}/doctors?page=${page}&limit=20`, {}, {
+          headers: {
+            Authorization: `Bearer ${localStorage.getItem('token')}`,
+          },
+        });
+        setDoctors(response.data.data);
       } catch (error) {
         console.error('Error fetching doctors:', error);
       }
@@ -35,16 +39,7 @@ const Doctors = () => {
       <div className="sp-doc-main">
         <Navbar />
         <section className="sp-doc-sect">
-          <div className="sp-topbar">
-            <div className="sp-tp-title">
-              <h2>Dashboard</h2>
-              <p>{new Date().toLocaleDateString()}</p>
-            </div>
-            <ul className="sp-tp-details">
-              <li> <IoMdNotificationsOutline size={35} /> </li>
-              <li> <FaUserCircle size={35} color="green" /> </li>
-            </ul>
-          </div>
+          <Topbar title='Doctors List' />
           <div  className="sp-dash-content">
             <table className="sp-table">
               <thead>
