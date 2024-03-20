@@ -10,35 +10,46 @@
     margin: 0;
     height: 100% !important;
     width: 100% !important;
-    background: linear-gradient(135deg, #77ff008d 0%, #00d4aa75 70%, #82eebc8d 100%);
 }
 .sp-apply-doctor {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    padding: 4rem 5rem;
+    padding: 3rem 3rem 1rem;
     margin: 3rem 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     width: 90% !important;
     background: white;
+    height: 100%;
+    position: relative;
 }
 .sp-hd-docDetails {
     display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
+    flex-direction: column;
     align-items: center;
-    width: 90%;
-    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.sp-hd-docDetails-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem 2rem;
+    width: 100%;
+    padding: 1rem;
+    text-align: left;
+    height: 100%;
 }
 .sp-hd-docDetails-item{
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    width: fit-content;
 }
 .sp-hd-docDetails-item > label {
     margin: .5rem 0;
     font-size: clamp(1rem, 1.2vw, 1.2rem);
+    font-weight: 600;
     align-items: start;
 }
 .sp-hd-docDetails-item input{
@@ -52,35 +63,52 @@
     width: 100%;
 }
 /* .sp-hd-docDetails-item last child styling */
-.sp-hd-docDetails-item:last-child {
+.sp-hd-docDetails-item:last-of-type {
+    grid-column: 1 / -1;
     display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    flex: 1;
+    justify-content: flex-start;
+    align-items: flex-start;
+    gap: 1rem;
 }
 
-.sp-hd-available{
-    display: flex;
-    align-items: flex-start;
-    width: 100%;
+.sp-hd-available {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
 }
-.sp-hd-available-time{
-    display: flex;
-    align-items: flex-start;
+
+.sp-hd-available label {
+    width: 100px;
+    text-align: left;
     margin: 0 1rem;
+}
+
+.sp-hd-available-time {
+  display: flex;
+  align-items: center;
+  gap: .3rem;
+  margin: 0 1rem;
+}
+
+.sp-hd-available-time input[type="time"] {
+  width: fit-content;
+  font-size: clamp(1rem, 1.1vw, 1.2rem);
 }
 .sp-hd-available-time > span{
     margin: 0 .5rem ;
 }
 .sp-available-btn{
-    background: var(--dark-button);
-    color: var(--color-bg);
+    background: var(--light-button);
     padding: 1rem;
     border-radius: 5px;
     cursor: pointer;
     transition: 0.3s;
     font-size: clamp(1rem, 1.1vw, 1.2rem);
     margin: 1rem auto;
+}
+.sp-available-btn:hover{
+    background: var(--dark-button);
+    color: var(--light-button);
 }
 
 /* DOCTORS AND USER TABLES */
@@ -90,22 +118,29 @@
     align-items: flex-start;
     padding: 1rem;
     margin: 3rem 0;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
-    width: 90% !important;
+    width: 100% !important;
+    height: 80vh;
     background: white;
 }
 .sp-table {
     width: 100%;
-    border-collapse: separate;
-    border: 1px solid var(--color-bg);
+    border-collapse:collapse;
+    border: 1px solid #02211b22;
+    border-radius: 20px;
     table-layout: auto;
-    overflow-y: scroll;
     margin: 1rem 0;
+    height: 100%;
+    width: 100%;
 }
 .sp-table tr th{
     padding: 1rem;
     font-weight: 600;
+    border: 1px solid #02211b22;
+    background: var(--dark-button);
+    color: var(--light-button);
+    text-align: center;
 }
 .sp-table th,
 .sp-table td {
@@ -114,7 +149,8 @@
     font-size: clamp(1rem, 1.1vw, 1.2rem);
     padding: .5rem 1rem;
     text-align: left;
-    border: 1px solid var(--color-bg);
+    border-bottom: 1px solid #042c2437;
+    width: fit-content;
 }
 .sp-tablePage {
     display: flex;
