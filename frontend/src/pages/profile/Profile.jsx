@@ -1,9 +1,13 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Navbar, ScrollToTop } from '../../components';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
 import { useNavigate } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
+import { setUser } from '../../redux/usersSlice';
+import axios from 'axios';
+import { BASE_URL } from '../../utils/config';
+import { toast } from 'react-hot-toast';
 import './profile.css';
 
 function Profile() {
@@ -70,7 +74,7 @@ function Profile() {
           <div className="sp-header">
             <div className="sp-hd-profile">
               <FaUserCircle size={100} color="green" />
-              <h3>{user.name}</h3>
+              <h3>{user.username}</h3>
             </div>
             <div className="sp-hd-profileDetails">
               <div className="sp-hd-profileDetails-item">
@@ -92,7 +96,7 @@ function Profile() {
                     pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
                   />
                 ) : (
-                  <p>{user.phone}</p>
+                  <p>{user.contact}</p>
                 )}
               </div>
               <div className="sp-hd-profileDetails-item">
@@ -101,7 +105,7 @@ function Profile() {
                   <textarea name="address" value={user.address} onChange={handleChange}
                   />
                 ) : (
-                  <p>{user.address}</p>
+                  <p>{user.address} || </p>
                 )}
               </div>
               <div className="sp-hd-profileDetails-item">
@@ -111,7 +115,7 @@ function Profile() {
                     type="date" name="dob" value={user.dob} onChange={handleChange}
                   />
                 ) : (
-                  <p>{user.dob}</p>
+                  <p>{new Date(user.dob).toLocaleDateString()}</p>
                 )}
               </div>
               <div className="sp-hd-profileDetails-item">

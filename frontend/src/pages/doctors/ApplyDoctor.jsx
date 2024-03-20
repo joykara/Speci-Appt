@@ -85,7 +85,8 @@ const ApplyDoctor = () => {
           </div>
             <div className="sp-apply-doctor">
               <h2>Apply Doctor</h2>
-              <form onSubmit={handleSubmit}className="sp-hd-docDetails">
+            <form onSubmit={handleSubmit} className="sp-hd-docDetails">
+              <div className="sp-hd-docDetails-grid">
                 <div className="sp-hd-docDetails-item">
                   <label htmlFor="firstName">First Name:</label>
                   <input type="text" name="firstName" placeholder="First Name" value={firstName} onChange={handleChange} required />
@@ -137,6 +138,7 @@ const ApplyDoctor = () => {
                     </div>
                   ))}
                 </div>
+              </div>
                 <button className="sp-available-btn" type="submit" onClick={handleSubmit}>Submit Application</button>
               </form>
             </div>
