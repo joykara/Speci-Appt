@@ -1,4 +1,4 @@
-# Hemllin - Website 
+# SpeciAppt - Website 
 ![Hemllin](https://github.com/joykara/Hemllin-master/assets/99082005/6fdf50fe-29ba-4015-b810-d8a173caf879)
 
 ## Table of contents
@@ -166,7 +166,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ### Links
 
-- Website Link: [https://hemllin-master.vercel.app/]
+- Website Link: [https://speci-appt.vercel.app/]
 
 ## My process
 
@@ -179,9 +179,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 
-### Useful resources
 
-- [Example resource 1](https://stackoverflow.com/questions/26665324/center-div-with-padding-instead-of-margin) - This is an amazing article which helped me finally understand how to center my margins and padding. I'd recommend it to anyone still learning this concept.
 
 
 ## Author
