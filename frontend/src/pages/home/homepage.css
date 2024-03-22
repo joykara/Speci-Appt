@@ -3,7 +3,7 @@
     flex-direction: column;
     align-items: center;
     padding: 0 1rem;
-    margin: 1rem 0;
+    margin: 0;
     height: 100% !important;
     width: 100% !important;
 }
@@ -25,9 +25,10 @@
     align-items:flex-start;
     padding: 4rem 5rem;
     margin: 3rem 0 ;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+    box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.1);
     border-radius: 1rem;
     width: 90% !important;
+    background: #fff;
 }
 .sp-overview{
     display: flex;

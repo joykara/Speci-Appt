@@ -15,7 +15,6 @@ const userSchema = new mongoose.Schema({
     contact: {
         type: String,
         required: true,
-        unique: true
     },
     address: {
         type: String
@@ -23,6 +22,10 @@ const userSchema = new mongoose.Schema({
     dob: {
         type: Date,
         required: true
+    },
+    isAdmin: {
+        type: Boolean,
+        default: false
     },
     password: {
         type: String,

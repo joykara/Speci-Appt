@@ -32,7 +32,7 @@ const SignUp = () => {
 
       dispatch(showLoading());
 
-      const response = await axios.post(`${BASE_URL}/user/register`, formData);
+      const response = await axios.post(`${BASE_URL}/users/register`, formData);
 
       dispatch(hideLoading());
 

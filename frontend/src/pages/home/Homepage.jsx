@@ -1,20 +1,21 @@
-/* eslint-disable no-script-url */
-import React, {useState, useEffect } from 'react';
+import React, { useState, useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
 import './homepage.css';
-import { Navbar, ScrollToTop } from '../../components';
-import { IoMdNotificationsOutline } from 'react-icons/io';
-import { FaUserCircle } from 'react-icons/fa';
+import { Navbar, ScrollToTop, SplashScreen, Topbar } from '../../components';
 import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import toast from 'react-hot-toast';
 import { BASE_URL } from '../../utils/config';
+import { setUser } from '../../redux/usersSlice';
 
 const Homepage = () => {
   const navigate = useNavigate();
-  const [userData, setUserData] = useState(null);
+  const dispatch = useDispatch();
+  const user = useSelector((state) => state.user.user);
+  const isAdmin = useSelector((state) => state.user.isAdmin); // Add isAdmin selector
 
   useEffect(() => {
-    const fetchUserData = async () => {
+    const fetchUser = async () => {
       try {
         const token = localStorage.getItem('token');
         if (!token) {
@@ -24,13 +25,13 @@ const Homepage = () => {
         }
 
         // Fetch user data using the JWT token
-        const response = await axios.post(`${BASE_URL}/user/profile`, {} , {
+        const response = await axios.post(`${BASE_URL}/users/profile`, {} , {
           headers: { Authorization: `Bearer ${token}` },
         });
 
-        console.log(response.data)
-        // Set the user data in state
-        setUserData(response.data);
+        dispatch(setUser(response.data.data));
+        console.log(isAdmin); // Log isAdmin status here for debugging purposes
+
       } catch (error) {
         // Handle errors
         console.error('Error fetching user data:', error);
@@ -38,45 +39,40 @@ const Homepage = () => {
       }
     };
 
-    fetchUserData();
-  }, [navigate]);
+    fetchUser();
+  }, [dispatch, navigate]);
 
-  if (!userData) {
-    return <div>Loading...</div>;
+  if (!user) {
+    return <SplashScreen />;
   }
+
   return (
     <>
       <div className="sp-main">
         <Navbar />
 
         <section className='sp-hero-sect'>
-          <div className="sp-topbar">
-            <div className="sp-tp-title">
-              <h2>Dashboard</h2>
-              {/* current date set as day date month and year */}
-              <p>{new Date().toLocaleDateString()}</p>
-            </div>
-            <ul className="sp-tp-details">
-              <li><IoMdNotificationsOutline size={35} /></li>
-              <li><FaUserCircle size={35} color='green' /></li>
-            </ul>
-          </div>
+          <Topbar title='Dashboard'/>
 
           <div className="sp-header">
-            <h3>Hello {userData.username}</h3>
+            <h3>Hello {user?.username}</h3>
             <p>Welcome to your Dashboard. Quickly view your recent activity</p>
           </div>
 
-          <div className="sp-overview">
-            <h4>Upcoming Appointment</h4>
-            <div className="sp-ovw-cards">
-              <div className="sp-ovw-card">
-                <h5>Dr. John Doe</h5>
-                <p>Cardiologist</p>
-                <p>12:00 PM</p>
-              </div>
+          {/* Conditional rendering based on isAdmin */}
+          {isAdmin ? (
+            // Admin content here
+            <div className="admin-content">
+              <h4>Admin Dashboard</h4>
+              {/* Add admin-specific components */}
             </div>
-          </div>
+          ) : (
+            // Regular user content here
+            <div className="user-content">
+              <h4>User Dashboard</h4>
+              {/* Add user-specific components */}
+            </div>
+          )}
 
         </section>
 

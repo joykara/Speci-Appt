@@ -1,20 +1,17 @@
+// AdminAppointments.js
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
 import { Navbar, Topbar } from '../../components';
 import { toast } from 'react-hot-toast';
 
-const Appointments = () => {
+const AdminAppointments = () => {
   const [appointments, setAppointments] = useState([]);
-  const [page, setPage] = useState(1);
 
   useEffect(() => {
     const fetchAppointments = async () => {
       try {
-        const response = await axios.get(`${BASE_URL}/appointments/user-appointment`, {
-          params: {
-            page: page // Pass current page as query parameter
-          },
+        const response = await axios.get(`${BASE_URL}/appointments/admin-appts`, {
           headers: {
             Authorization: `Bearer ${localStorage.getItem('token')}` // Include JWT token for authentication
           }
@@ -28,27 +25,20 @@ const Appointments = () => {
     };
 
     fetchAppointments();
-  }, [page]); // Fetch appointments when currentPage changes
-
-  const handleNextPage = () => {
-    setPage((prevPage) => prevPage +1);
-  };
-
-  const handlePrevPage = () => {
-    setPage((prevPage) => prevPage - 1);
-  };
+  }, []);
 
   return (
     <div className="sp-doc-main">
       <Navbar />
       <section className="sp-doc-sect">
-        <Topbar title="My Appointments" />
+        <Topbar title="All Appointments" />
 
         <div className="sp-dash-appt">
           <table className="sp-table">
             <thead>
               <tr>
                 <th>Doctor</th>
+                <th>Patient</th>
                 <th>Date</th>
                 <th>Time</th>
                 <th>Reason</th>
@@ -59,6 +49,7 @@ const Appointments = () => {
               {appointments.map(appointment => (
                 <tr key={appointment._id}>
                   <td>{appointment.doctor.firstName} {appointment.doctor.lastName}</td>
+                  <td>{appointment.patient.username}</td>
                   <td>{new Date(appointment.date).toLocaleDateString()}</td>
                   <td>{appointment.time}</td>
                   <td>{appointment.reason}</td>
@@ -67,14 +58,10 @@ const Appointments = () => {
               ))}
             </tbody>
           </table>
-          <div className='sp-tablePage'>
-              <button onClick={handlePrevPage} disabled={page === 1}>Previous</button>
-              <button onClick={handleNextPage}>Next</button>
-            </div>
         </div>
       </section>
     </div>
   );
 };
 
-export default Appointments;
+export default AdminAppointments;

@@ -18,11 +18,15 @@ const Login = () => {
     e.preventDefault();
     try {
       dispatch(showLoading())
-      const response = await axios.post(`${BASE_URL}/user/login`, values);
+      const response = await axios.post(`${BASE_URL}/users/login`, values);
       dispatch(hideLoading());
       if (response.data.success) { // Redirect to homepage after successful registration
         toast.success(response.data.msg);
         localStorage.setItem('token', response.data.token);
+
+        if (response.data.admin) {
+          localStorage.setItem('admin', 'true'); // Set admin flag in localStorage
+        }
         setTimeout(() => navigate('/'), 1000);
       } else {
         toast.error(response.data.msg);

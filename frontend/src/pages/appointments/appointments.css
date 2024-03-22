@@ -1,0 +1,71 @@
+.sp-hd-aptDetails {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-gap: 1rem 2rem;
+    width: 100%;
+}
+
+.sp-hd-aptDetails-item {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
+.sp-hd-aptDetails-item label {
+  font-weight: bold;
+}
+
+.sp-hd-aptDetails-item input[type="text"],
+.sp-hd-aptDetails-item input[type="date"],
+.sp-hd-aptDetails-item input[type="time"],
+.sp-hd-aptDetails-item textarea {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+
+.sp-hd-aptDetails-item select {
+  padding: 5px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  width: 100%;
+}
+.sp-hd-aptDetails-item select option {
+  padding: 1rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--color-bg);
+  width: 100%;
+}
+
+.sp-hd-aptDetails button[type="submit"] {
+  padding: 10px 20px;
+  background-color: #000601;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 16px;
+}
+
+.sp-hd-aptDetails button[type="submit"]:hover {
+  background-color: #45a049;
+}
+
+/* USER APPOINTMENT PAGE */
+.sp-dash-appt {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 1rem;
+  margin: 3rem 0;
+  box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.1);
+  border-radius: 1rem;
+  width: 100% !important;
+  /* height: 80vh; */
+  background: white;
+}
