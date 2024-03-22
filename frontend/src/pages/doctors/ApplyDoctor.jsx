@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import axios from 'axios';
 import { BASE_URL } from '../../utils/config';
-import { Navbar } from '../../components';
+import { Navbar, Topbar } from '../../components';
 import { IoMdNotificationsOutline } from 'react-icons/io';
 import { FaUserCircle } from 'react-icons/fa';
 import './doctors.css';
@@ -73,18 +73,8 @@ const ApplyDoctor = () => {
       <div className="sp-doc-main">
         <Navbar />
         <section className="sp-doc-sect">
-          <div className="sp-topbar">
-            <div className="sp-tp-title">
-              <h2>Dashboard</h2>
-              <p>{new Date().toLocaleDateString()}</p>
-            </div>
-            <ul className="sp-tp-details">
-              <li> <IoMdNotificationsOutline size={35} /> </li>
-              <li> <FaUserCircle size={35} color="green" /> </li>
-            </ul>
-          </div>
+          <Topbar title='Apply Doctor' />
             <div className="sp-apply-doctor">
-              <h2>Apply Doctor</h2>
             <form onSubmit={handleSubmit} className="sp-hd-docDetails">
               <div className="sp-hd-docDetails-grid">
                 <div className="sp-hd-docDetails-item">
