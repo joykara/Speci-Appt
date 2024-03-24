@@ -186,7 +186,7 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 - Github - [Joy Mwende Karani](https://github.com/joykara/)
 - Github - [Memia Tabitha Wambui](https://github.com/m3mier)
 - Github - [Lisa Kadzo]
-- Github - [Kabuga Elvis Njuguna]
+- Github - [Kabuga Elvis Njuguna](https://github.com/Kabugu-Stack)
 
 
 
