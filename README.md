@@ -184,9 +184,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 ## Author
 - Github - [Joy Mwende Karani](https://github.com/joykara/)
-- Github - []
-- Github - []
-- Github - []
+- Github - [Memia Tabitha Wambui](https://github.com/m3mier)
+- Github - [Lisa Kadzo]
+- Github - [Kabuga Elvis Njuguna]
 
 
 
