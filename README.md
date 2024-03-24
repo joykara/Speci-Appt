@@ -162,6 +162,36 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 
 
 ### Dependencies Used
+#### Frontend
+| Dependency | Version                                                                                    |
+- `axios`: `^0.27.2`,
+- `helmet`: `^7.0.0`,
+- `native`: `^0.3.3`,
+- `nodemon`: `^3.0.1`,
+- `react`: `^18.2.0`,
+- `react-axios`: `^2.0.6`,
+- `react-cookie`: `^4.1.1`,
+- `react-dom`: `^18.2.0`,
+- `react-ga`: `^3.3.1`,
+- `react-google-recaptcha`: `^3.1.0`,
+- `react-helmet`: `^6.1.0`,
+- `react-icons`: `^4.9.0`,
+- `react-router-dom`: `^6.11.2`,
+- `react-router-hash-link`: `^2.4.3`,
+- `react-scripts`: `^5.0.1`,
+- `web-vitals`: `^2.1.4`
+#### Backend
+| Dependency | Version
+- `bcryptjs`: `^2.4.3`,
+- `cors`: `^2.8.5`,
+- `dotenv`: `^16.0.0`,
+- `express`: `^4.17.3`,
+- `jsonwebtoken`: `^8.5.1`,
+- `mongodb`: `^4.1.0`,
+- `mongoose`: `^6.2.7`,
+- `multer`: `^2.0.2`,
+- `nodemon`: `^2.0.22`,
+- `path`: `^0.12.7`.
 
 
 ### Links
