@@ -1,0 +1,1 @@
+export const BASE_URL = 'https://speci-appt.onrender.com/api';

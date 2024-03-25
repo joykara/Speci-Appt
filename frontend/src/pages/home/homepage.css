@@ -1,0 +1,39 @@
+.sp-hero-sect{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 1rem;
+    margin: 0;
+    height: 100% !important;
+    width: 100% !important;
+}
+.sp-topbar{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    width: 90% !important;
+}
+.sp-tp-details{
+    display: flex;
+}
+.sp-tp-details li{
+    margin-right: 1.5rem;
+}
+.sp-header{
+    display: flex;
+    flex-direction: column;
+    align-items:flex-start;
+    padding: 4rem 5rem;
+    margin: 3rem 0 ;
+    box-shadow: 1px 5px 15px 1px rgba(0, 0, 0, 0.1);
+    border-radius: 1rem;
+    width: 90% !important;
+    background: #fff;
+}
+.sp-overview{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: flex-start;
+    width: 85%;
+}
