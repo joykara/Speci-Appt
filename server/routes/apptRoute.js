@@ -68,7 +68,7 @@ router.get("/user-appointment", verifyToken, async (req, res) => {
     const startIndex = (page - 1) * limit;
 
     const appointments = await Appointment.find({ patient: user._id })
-      .populate('doctor', 'firstName lastName')
+      .populate('doctor', 'firstName lastName department')
       .sort([
         ["date", "ascending"],
       ])
@@ -104,6 +104,28 @@ router.get("/admin-appts", verifyToken, async (req, res) => {
     res.status(200).json({ appointments });
   } catch (error) {
     console.error('Error fetching appointments:', error);
+    res.status(500).json({ message: 'Server Error' });
+  }
+});
+
+// Route to cancel an appointment
+router.delete('/appointments/user-appointment/:appointmentId', async (req, res) => {
+  const { appointmentId } = req.params;
+  console.log(appointmentId)
+
+  try {
+    const appointment = await Appointment.findById(appointmentId);
+
+    // Check if the appointment exists
+    if (!appointment) {
+      return res.status(404).json({ message: 'Appointment not found' });
+    }
+
+    await Appointment.findByIdAndDelete(appointmentId);
+
+    res.status(200).json({ message: 'Appointment cancelled successfully' });
+  } catch (error) {
+    console.error('Error cancelling appointment:', error);
     res.status(500).json({ message: 'Server Error' });
   }
 });
